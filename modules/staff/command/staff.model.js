@@ -46,7 +46,7 @@ class StaffModel {
         return StaffModel.hashPassword(command.password).then(pwHash => {
           command.password = pwHash;
           return repo.updateStaff(command).then(result => {
-            return Promise.resolve(result);
+            return Promise.resolve(result.id);
           });
         });
       });

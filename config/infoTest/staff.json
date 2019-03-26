@@ -1,8 +1,8 @@
 [
   {
     "role_id": 1,
-    "username": "alex11111111",
-    "password": "abcd1234",
+    "username": "alex",
+    "password": "$2a$12$hjyFKDKOtxssgU8./olvq.O9HCZXyHqBlGfqd/JX2yEZ96pQ.6fbi",
     "email": "abc@sample.com",
     "firstname": "Alex",
     "lastname": "Hoang",
@@ -12,19 +12,8 @@
   },
   {
     "role_id": 2,
-    "username": "alex2222222",
-    "password": "abcd1234",
-    "email": "abc@sample.com",
-    "firstname": "Alex",
-    "lastname": "Hoang",
-    "dob": "2000-03-22 09:39:50",
-    "address": "119 DBP",
-    "phone": "84975508284"
-  },
-  {
-    "role_id": 2,
-    "username": "alex222222222",
-    "password": "$2a$12$Oq/X1UPoiere.W6rGVHn2uQkfnfLFD/2zheZk4RREYOFi5XKSsJu.",
+    "username": "alex23456644",
+    "password": "$2a$12$8nCNMJUZ3bgZFrmRhZ0UDuf2M7lrcNsGIOwozis.gDimnUsKV96V2",
     "email": "abc@sample.com",
     "firstname": "Alex",
     "lastname": "Hoang",

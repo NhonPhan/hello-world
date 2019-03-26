@@ -40,9 +40,9 @@ class StaffController {
       handler = new Handler();
       handler
         .addStaff(command)
-        .then(staff => {
+        .then(staffID => {
           logger.info("ADD-STAFF", "Finished!");
-          return res.status(httpCodes.OK).json(staff);
+          return res.status(httpCodes.OK).json(staffID);
         })
         .catch(err => {
           logger.error(err.message);
