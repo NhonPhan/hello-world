@@ -1,0 +1,210 @@
+openapi: 3.0.0
+servers:
+  - description: Node CQRS APIs documents
+    url: http://localhost:8080/api
+info:
+  description: Node CQRS Swagger
+  version: '1.0.0'
+  title: APIs document Swagger
+  contact:
+    email: trungmb007@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /signin:
+    post:
+      tags:
+        - Authentication
+      summary: Staff sign in
+      operationId: signin
+      description:
+        Sign in
+      requestBody:
+        description: Signin *data*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StaffSignin'          
+      responses:
+        '200':
+          description: Signin success
+          content:
+            application/json:              
+              schema:
+                type: object
+        '400':
+          description: Not found
+  /signout:
+    get:
+      tags:
+        - Authentication
+      summary: Staff sign out
+      operationId: signout
+      description:
+        Sign out
+      responses:
+        '200':
+          description: Sign out success
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Sign out fail
+  /health:
+    get:
+      tags:
+        - Authentication
+      summary: Check api status
+      operationId: health
+      description:
+        Check api status
+      responses:
+        '200':
+          description: API status OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /staffs:
+    post:
+      tags:
+        - Staff
+      summary: Add staff
+      operationId: addStaff
+      description: |
+        Add Staff
+      requestBody:
+        description: Staff *data*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Staff'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Staff'
+      responses:
+        '200':
+          description: Add user success
+          content:
+            application/json:
+              example: { 'type': 'staff','staff': {'id': 3}}
+              schema:
+                type: object
+        '400':
+          description: Add staff error
+  /roles:
+    get:
+      tags:
+        - Master Data
+      summary: Get all roles
+      operationId: getRoles
+      description:
+        get all roles
+      responses:
+        '200':
+          description: List of roles
+          content:
+            application/json:
+              schema:
+                type: object
+  /roles/{id}:
+    get:
+      tags:
+        - Master Data
+      summary: Get role by Id
+      operationId: getSourceCompany
+      parameters:
+      - name: 'id'
+        in: 'path'
+        description: 'ID of role'
+        required: true
+        schema:
+          type: integer
+      description: |
+        Get role by Id
+      responses:
+        '200':
+          description: Get role success
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Not found
+components:
+  schemas: 
+    Staff:
+      type: object
+      properties:
+        roleId:
+          type: number
+          example: 1
+        username:
+          type: string
+          example: 'admin'
+        password:
+          type: string
+          example: 'abcd1234'
+        email:
+          type: string
+          example: 'admin@sample.com'
+        firstname:
+          type: string
+          example: 'Alex'
+        lastname:
+          type: string
+          example: 'Hoang'
+        dob:
+          type: string
+          example: '200-03-22 09:39:38'
+        address:
+          type: string
+          example: '119 DBP'
+        phone:
+          type: string
+          example: '84975508284'
+    StaffUpdate:
+      type: object
+      properties:
+        roleId:
+          type: number
+          example: 1
+        username:
+          type: string
+          example: 'admin'
+        password:
+          type: string
+          example: 'abcd1234'
+        email:
+          type: string
+          example: 'admin@sample.com'
+        firstname:
+          type: string
+          example: 'Alex'
+        lastname:
+          type: string
+          example: 'Hoang'
+        dob:
+          type: string
+          example: '200-03-22 09:39:38'
+        address:
+          type: string
+          example: '119 DBP'
+        phone:
+          type: string
+          example: '84975508284'     
+    StaffSignin:
+      type: object
+      properties:
+        username:
+          type: string
+          example: 'admin'
+        password:
+          type: string
+          example: 'abcd1234'
+    
+    

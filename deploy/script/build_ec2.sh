@@ -1,0 +1,5 @@
+echo 'clear old data'
+echo 'start build frontend..'
+echo 'finish building frontend!'
+echo 'start build backend..'
+echo 'finish building backend!'

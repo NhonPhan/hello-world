@@ -1,0 +1,101 @@
+I. Database
+1. Create database from file:
+    node_cqrs\deploy\db\sample_db.sql
+    node_cqrs\deploy\db\insert_master_data.sql
+
+II. Install/Start project
+1. install project
+    npm install    
+2. start project
+    node app.js
+
+III. Test API (Using Postman)
+1. signin
+    POST: http://localhost:8080/api/signin
+    Body (Select row and JSON(application/json)):
+    {
+        "username":"admin",
+        "password":"abcd1234"
+    }
+    Result:
+    {
+        "type": "profile_data",
+        "profile_data": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@sample.info",
+            "firstname": "Aaron",
+            "lastname": "Aaberg",
+            "dob": null,
+            "address": "8 Station Rd E, Oxted RH8 0BT",
+            "phone": "840918971928",
+            "createdAt": "2019-03-21T08:42:06.547Z"
+        }
+    }
+2. signout
+    GET: http://localhost:8080/api/signout    
+    Result:
+    {
+        "type": "sign_out",
+        "sign_out": "OK"
+    }
+
+3. get roles
+    GET: http://localhost:8080/api/roles
+    NOTES: have to signin before testing this API
+    Result:
+    {
+        "type": "roles",
+        "roles": {
+            "data": [
+                {
+                    "id": 1,
+                    "code": "ADM",
+                    "description": "admin"
+                },
+                {
+                    "id": 2,
+                    "code": "USR",
+                    "description": "user"
+                }
+            ]
+        }
+    }   
+
+4. get role by id
+    GET: http://localhost:8080/api/roles/1
+    NOTES: have to signin before testing this API
+    Result:
+    {
+        "type": "role",
+        "role": {
+            "data": {
+                "id": 1,
+                "code": "ADM",
+                "description": "admin"
+            }
+        }
+    }
+
+5. add staff
+    POST: http://localhost:8080/api/staffs
+    NOTES: have to signin before testing this API
+    Body (Select row and JSON(application/json)):
+    {
+        "roleId": 2,
+        "username":"alex",
+        "password":"abcd1234",
+        "email":"abc@sample.com",
+        "firstname":"Alex",
+        "lastname":"Hoang",
+        "dob":"200-03-22 09:39:38",
+        "address":"119 DBP",
+        "phone":"84975508284"
+    }
+    Result:
+    {
+        "type": "staff",
+        "staff": {
+            "id": 3
+        }
+    }  
